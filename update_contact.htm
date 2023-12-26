@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<title>LAN Sharks update contact</title>
+	</head>
+	<body>
+		<div class="wholepage">
+			<div class="nav">
+				<img src="images/banner1.jpg" usemap="#image-map">
+				<map name="image-map">
+					<area target="" alt="Home" title="Home" href="index.htm" coords="5,155,115,200" shape="rect">
+					<area target="" alt="Services" title="Services" href="services.htm" coords="135,155,280,200" shape="rect">
+					<area target="" alt="Threats" title="Threats" href="threats.htm" coords="300,155,445,200" shape="rect">
+					<area target="" alt="Contact" title="Contact" href="contact.htm" coords="470,155,625,200" shape="rect">
+					<area target="" alt="About" title="About" href="about.htm" coords="655,155,765,200" shape="rect">
+					<area target="" alt="Login" title="Login" href="login.htm" coords="975,155,1095,200" shape="rect">
+				</map>
+			</div>
+			<div class="row1">
+				<div class="column1">
+					<img src="images/red_swirls.jpg">
+				</div> <!--column1 close-->
+			<div class="column2">					
+					<form class="loginform" action="update_contact.py" method="post">
+						<!-- Contact Information fields -->
+						<!-- Additional Contact Information fields -->
+						<label for="company">Company Name: </label>
+						<input size="50" type="text" id="company" name="CompanyName" /><p/>
+
+						<label for="street">Address: </label>
+						<input size="50" type="text" id="street" name="Street" /><p/>
+
+						<label for="city">City: </label>;
+						<input size="15" type="text" id="city" name="City" /><p/>
+
+
+						<label for="email">E-mail: </label>
+						<input required="required" size="30" type="email" id="email" name="Email" /><p/>
+
+						<label for="zip">ZIP code: </label>
+						<input required="required" size="10" maxlength="5" type="text" id="zip" name="ZIP" /><p/>
+
+
+						<label for="state">State: </label>
+						<input size="15" type="text" id="state" name="State" /><p/>
+
+						
+						<label for="phone">Phone: </label>
+						<input size="10" type="tel" id="phone" name="Phone" /><p/>
+						<!-- End of Additional Contact Information fields -->
+					
+						<!-- Submit button -->
+						<input class="button btnlogin" type="submit" value="Update contact information" /><p/>
+						<input type="hidden" name="update_concat" value="1">
+					</form>
+				</div> <!--column2 close-->			
+			</div> <!--row1 close-->
+		<div class="row2">
+			</div> <!--row2 close-->
+			<div class="row3">
+			</div> <!--row3 close-->			
+		</div> <!--wholepage close-->
+</body>
+</html>

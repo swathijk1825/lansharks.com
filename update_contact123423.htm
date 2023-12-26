@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>LAN Sharks Update Contact</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Function to fetch existing data and fill the form fields for updating contact information
+        function updateContact() {
+            $.ajax({
+                type: "POST",
+                url: "update_contact.py",
+                data: {
+                    update_contact: 1
+                },
+                success: function(response) {
+                    // Parse the JSON response
+                    var data = JSON.parse(response);
+
+                    // Populate the form fields with the received data
+                    $('#company').val(data.CompanyName);
+                    $('#street').val(data.Street);
+                    $('#city').val(data.City);
+                    $('#email').val(data.Email);
+                    $('#zip').val(data.ZIP);
+                    $('#state').val(data.State);
+                    $('#phone').val(data.Phone);
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        // Call the updateContact function when the page loads
+        $(document).ready(function() {
+            updateContact(); // Auto-load data when the page loads
+        });
+    </script>
+</head>
+<body>
+    <div class="wholepage">
+        <div class="nav">
+            <!-- Your existing navigation code -->
+        </div>
+        <div class="row1">
+            <div class="column1">
+                <img src="images/red_swirls.jpg">
+            </div>
+            <div class="column2">                    
+                <form class="loginform" action="update_contact.py" method="post">
+                    <!-- Contact Information fields -->
+                    <label for="company">Company Name: </label>
+                    <input size="50" type="text" id="company" name="CompanyName" /><p/>
+
+                    <label for="street">Address: </label>
+                    <input size="50" type="text" id="street" name="Street" /><p/>
+
+                    <label for="city">City: </label>
+                    <input size="15" type="text" id="city" name="City" /><p/>
+
+                    <label for="email">E-mail: </label>
+                    <input required="required" size="30" type="email" id="email" name="Email" /><p/>
+
+                    <label for="zip">ZIP code: </label>
+                    <input required="required" size="10" maxlength="5" type="text" id="zip" name="ZIP" /><p/>
+
+                    <label for="state">State: </label>
+                    <input size="15" type="text" id="state" name="State" /><p/>
+
+                    <label for="phone">Phone: </label>
+                    <input size="10" type="tel" id="phone" name="Phone" /><p/>
+
+                    <!-- Submit button -->
+                    <input class="button btnlogin" type="submit" value="Update contact information" /><p/>
+                    <input type="hidden" name="update_concat" value="1">
+                </form>
+            </div>
+        </div>
+        <div class="row2">
+            <!-- Your existing row2 content -->
+        </div>
+        <div class="row3">
+            <!-- Your existing row3 content -->
+        </div>
+    </div>
+</body>
+</html>

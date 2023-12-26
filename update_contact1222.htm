@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>LAN Sharks update contact</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        // Function to fetch existing data and fill the form fields
+        function updateContact() {
+            $.ajax({
+                type: "POST",
+                url: "update_contact.py",  // Point to the correct Python script
+                success: function(response) {
+                    // Replace the form content with the updated form
+                    $('#updateFormContainer').html(response);
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        // Call the updateContact function when the user clicks the button
+        $(document).ready(function() {
+            $('#updateButton').click(updateContact);
+        });
+    </script>
+</head>
+<body>
+    <div class="wholepage">
+        <div class="nav">
+            </div>
+        <div class="row1">
+            <div class="column1">
+                </div>
+            <div class="column2">
+                <h2>Update Contact Information</h2>
+                <div id="updateFormContainer"></div> <button id="updateButton">Update contact information</button>
+            </div>
+        </div>
+        <div class="row2">
+            </div>
+        <div class="row3">
+            </div>
+    </div>
+</body>
+</html>
